@@ -18,3 +18,15 @@
     --color-danger: #E25858;
 
 }
+
+::-webkit-scrollbar{
+    width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #262626;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
