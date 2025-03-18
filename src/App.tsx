@@ -12,6 +12,18 @@ import { NewTask } from "./componets/NewTask"
 
 function App() {
   const [havetask, setHavetask]= useState(false)
+  const [legendaImput, setLegendaImput]= useState("")
+  
+
+
+  function CreateNewTask(e: React.FormEvent){
+    e.preventDefault()
+
+    setHavetask(true)
+
+    
+    
+  }
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-600 ">
@@ -21,10 +33,13 @@ function App() {
       </div>
       
       <div className="flex-1">
-        <form className="flex justify-center gap-4 w-[720px]">
-          <input type="text" placeholder="Adicione uma nova tarefa" className="bg-gray-500 text-gray-300 p-3 rounded-lg w-2xl"/>
+        <form onSubmit={CreateNewTask} className="flex justify-center gap-4 w-[720px]">
+          <input type="text" placeholder="Adicione uma nova tarefa" 
+            className="bg-gray-500 text-gray-300 p-3 rounded-lg w-2xl"
+            onChange={(e) => (setLegendaImput(e.target.value))}
+          />
             
-          <button type="submit" className="flex items-center py-3 px-5  gap-2 bg-blue-dark text-gray-100 rounded-lg">
+          <button type="submit" className="flex items-center py-3 px-5  gap-2 bg-blue-dark text-gray-100 rounded-lg cursor-pointer">
             Criar
             <img src={plusIco} />
           </button>
@@ -43,7 +58,7 @@ function App() {
 
 
         {
-          havetask ? <NewTask/> : <EmptyTask/>
+          havetask ? <NewTask Legenda={legendaImput}/> : <EmptyTask/>
         }
         
       </div>

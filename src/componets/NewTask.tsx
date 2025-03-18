@@ -2,7 +2,11 @@ import { useState } from "react"
 
 import trashIco from "../assets/trash.svg"
 
-export function NewTask() {
+export interface Props {
+    Legenda: string
+}
+
+export function NewTask({Legenda}: Props) {
   const [isChecked, setIsChecked] = useState(false)
 
   return (
@@ -15,7 +19,7 @@ export function NewTask() {
             />
             
             <span className={`text-gray-100 ${isChecked ? "line-through text-gray-300" : ""} `}>
-            Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+                {Legenda}
             </span>
             
             <img src={trashIco} alt="Icone Delete" className=" w-7 h-7 cursor-pointer "/>
